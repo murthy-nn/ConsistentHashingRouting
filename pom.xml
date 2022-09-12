@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.oc</groupId>
+  <artifactId>AlarmProcessingV1</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>AlarmProcessingV1</name>
+  
+  <properties>
+        <akka.version>2.6.19</akka.version>
+  </properties>
+  
+  <dependencies>
+		<dependency>
+		    <groupId>com.typesafe.akka</groupId>
+		    <artifactId>akka-actor-typed_2.13</artifactId>
+		    <version>${akka.version}</version>
+		</dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-actor-testkit-typed_2.13</artifactId>
+            <version>${akka.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.5.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+        	<groupId>org.junit.jupiter</groupId>
+        	<artifactId>junit-jupiter-engine</artifactId>
+        	<version>5.5.2</version>
+        	<scope>test</scope>
+    	</dependency>
+    	
+    	<dependency>
+			<groupId>org.onosproject</groupId>
+			<artifactId>jnc</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.ethz.ganymed</groupId>
+			<artifactId>ganymed-ssh2</artifactId>
+			<version>263</version>
+			<scope>system</scope>
+			<systemPath>F:\1TB\P\git-clone\ganymed-ssh2-263.jar</systemPath>
+		</dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+            	<plugin>
+		<groupId>org.codehaus.mojo</groupId>
+		<artifactId>exec-maven-plugin</artifactId>
+		<version>3.0.0</version>
+		<configuration>
+			<executable>java</executable>
+			<arguments>
+				<argument>-classpath</argument>
+				<classpath />
+				<argument>akka.Main</argument>
+			</arguments>
+		</configuration>
+	</plugin>
+        </plugins>
+    </build>
+    
+</project>
